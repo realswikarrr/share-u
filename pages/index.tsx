@@ -1,9 +1,15 @@
 import type { NextPage } from "next";
+import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
+  const hello = trpc.useQuery(["hello"]);
+  console.log(hello.data);
+  if (!hello.data) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
-      <h1 className="text-3xl">Hello World</h1>
+      <p>{hello.data.greeting}</p>
     </div>
   );
 };
