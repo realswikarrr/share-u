@@ -7,9 +7,13 @@ import { prisma } from "../../../db/client";
 export const appRouter = trpc
   .router()
   .transformer(superjson)
-  .query("getAll", {
+  .query("getLinks", {
     async resolve() {
-      return await prisma.user.findMany();
+      return await prisma.user.findMany({
+        include: {
+          links: true,
+        },
+      });
     },
   });
 
