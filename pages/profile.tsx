@@ -8,10 +8,6 @@ const Profile = () => {
   const createUser = trpc.useMutation(["createUser"]);
   const user = trpc.useQuery(["getUser", { userId: session?.user?.email! }]);
 
-  if (status === "loading") {
-    return <div>Loading...</div>;
-  }
-
   useEffect(() => {
     if (user.data?.length === 0) {
       createUser.mutate({
