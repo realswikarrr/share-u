@@ -4,14 +4,51 @@ import { z } from "zod";
 import superjson from "superjson";
 import { prisma } from "../../../db/client";
 
+// const [id, setId] = useState<string | undefined>(session?.user?.name);
+
 export const appRouter = trpc
   .router()
   .transformer(superjson)
-  .query("getLinks", {
-    async resolve() {
+  .query("getUser", {
+    input: z
+      .object({
+        userId: z.string(),
+      })
+      .nullish(),
+    async resolve({ input }) {
       return await prisma.user.findMany({
+        where: {
+          id: input?.userId,
+        },
         include: {
           links: true,
+        },
+      });
+    },
+  })
+  .mutation("createUser", {
+    input: z.object({
+      userId: z.string(),
+      name: z.string(),
+      email: z.string(),
+      image: z.string(),
+    }),
+    async resolve({ input }) {
+      return await prisma.user.create({
+        data: {
+          id: input?.userId!,
+          name: input?.name!,
+          email: input?.email!,
+          image: input?.image!,
+          links: {
+            create: [
+              {
+                text: "",
+                image: "",
+                docs: "",
+              },
+            ],
+          },
         },
       });
     },

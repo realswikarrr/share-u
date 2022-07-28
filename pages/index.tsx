@@ -1,9 +1,7 @@
 import type { NextPage } from "next";
-import { useSession, signIn, signOut, getSession } from "next-auth/react";
+import { signIn, getSession } from "next-auth/react";
 
 const Home: NextPage = () => {
-  const { data: session } = useSession();
-
   return (
     <>
       <div>Hello stranger</div>
