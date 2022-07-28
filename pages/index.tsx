@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
-  const hello = trpc.useQuery(["hello"]);
+  const hello = trpc.useQuery(["getAll"]);
   console.log(hello.data);
   if (!hello.data) {
     return <div>Loading...</div>;
