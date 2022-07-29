@@ -40,15 +40,6 @@ export const appRouter = trpc
           name: input?.name!,
           email: input?.email!,
           image: input?.image!,
-          links: {
-            create: [
-              {
-                text: "",
-                image: "",
-                docs: "",
-              },
-            ],
-          },
         },
       });
     },

@@ -20,10 +20,18 @@ const Profile = () => {
     }
   }, [user.data?.length]);
 
-  if (status === "authenticated") {
+  if (status === "authenticated" && user.data?.length === 1) {
+    console.log(user.data[0]?.links);
     return (
       <div>
         <h1>Logged In As {session?.user?.email}</h1>
+        {user.data[0]?.links.map((link) => (
+          <div key={link.id}>
+            <h1>{link.text}</h1>
+            <h1>{link.image}</h1>
+            <h1>{link.docs}</h1>
+          </div>
+        ))}
         <button onClick={() => signOut()}>Sign Out</button>
       </div>
     );
