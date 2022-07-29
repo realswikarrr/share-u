@@ -1,7 +1,8 @@
 import { trpc } from "../utils/trpc";
 import { useSession, signOut, getSession } from "next-auth/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Info from "../components/info";
 
 const Profile = () => {
   const { data: session, status } = useSession();
@@ -23,17 +24,10 @@ const Profile = () => {
   }, [user.data?.length]);
 
   if (status === "authenticated" && user.data?.length === 1) {
-    console.log(user.data[0]?.links);
     return (
       <div>
         <h1>Logged In As {session?.user?.email}</h1>
-        {user.data[0]?.links.map((link) => (
-          <div key={link.id}>
-            <h1>{link.text}</h1>
-            <h1>{link.image}</h1>
-            <h1>{link.docs}</h1>
-          </div>
-        ))}
+        <Info />
         <button onClick={() => signOut()}>Sign Out</button>
       </div>
     );

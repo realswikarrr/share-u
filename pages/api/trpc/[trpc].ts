@@ -20,8 +20,19 @@ export const appRouter = trpc
         where: {
           id: input?.userId,
         },
-        include: {
-          links: true,
+      });
+    },
+  })
+  .query("getLinks", {
+    input: z
+      .object({
+        userId: z.string(),
+      })
+      .nullish(),
+    async resolve({ input }) {
+      return await prisma.links.findMany({
+        where: {
+          userId: input?.userId,
         },
       });
     },
