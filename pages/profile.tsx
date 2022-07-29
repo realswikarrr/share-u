@@ -7,11 +7,16 @@ import Info from "../components/info";
 const Profile = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
-  const createUser = trpc.useMutation(["createUser"]);
-  const user = trpc.useQuery(["getUser", { userId: session?.user?.email! }]);
+  const { data, refetch } = trpc.useQuery([
+    "getUser",
+    { userId: session?.user?.email! },
+  ]);
+  const createUser = trpc.useMutation(["createUser"], {
+    onSuccess: () => refetch(),
+  });
 
   useEffect(() => {
-    if (user.data?.length === 0) {
+    if (data?.length === 0) {
       createUser.mutate({
         userId: session?.user?.email!,
         name: session?.user?.name!,
@@ -21,9 +26,13 @@ const Profile = () => {
       console.log("user created Sucessfully");
       router.reload();
     }
-  }, [user.data?.length]);
+  }, [data?.length]);
 
-  if (status === "authenticated" && user.data?.length === 1) {
+  if (status === "loading") {
+    return <div>Loading....</div>;
+  }
+
+  if (status === "authenticated") {
     return (
       <div>
         <h1>Logged In As {session?.user?.email}</h1>
