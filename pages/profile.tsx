@@ -1,7 +1,5 @@
 import { trpc } from "../utils/trpc";
 import { useSession, signOut, getSession } from "next-auth/react";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import Info from "../components/info";
 
 const Profile = () => {
