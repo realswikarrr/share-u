@@ -43,6 +43,24 @@ export const appRouter = trpc
         },
       });
     },
+  })
+  .mutation("createLink", {
+    input: z.object({
+      userId: z.string(),
+      text: z.string(),
+      image: z.string(),
+      docs: z.string(),
+    }),
+    async resolve({ input }) {
+      return await prisma.links.create({
+        data: {
+          userId: input?.userId!,
+          text: input?.text!,
+          image: input?.image!,
+          docs: input?.docs!,
+        },
+      });
+    },
   });
 
 // export type definition of API

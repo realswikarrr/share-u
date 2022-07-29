@@ -1,10 +1,11 @@
 import { trpc } from "../utils/trpc";
 import { useSession, signOut, getSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const Profile = () => {
   const { data: session, status } = useSession();
-
+  const router = useRouter();
   const createUser = trpc.useMutation(["createUser"]);
   const user = trpc.useQuery(["getUser", { userId: session?.user?.email! }]);
 
@@ -17,6 +18,7 @@ const Profile = () => {
         image: session?.user?.image!,
       });
       console.log("user created Sucessfully");
+      router.reload();
     }
   }, [user.data?.length]);
 
