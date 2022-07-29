@@ -4,8 +4,6 @@ import { z } from "zod";
 import superjson from "superjson";
 import { prisma } from "../../../db/client";
 
-// const [id, setId] = useState<string | undefined>(session?.user?.name);
-
 export const appRouter = trpc
   .router()
   .transformer(superjson)
@@ -16,7 +14,7 @@ export const appRouter = trpc
       })
       .nullish(),
     async resolve({ input }) {
-      return await prisma.user.findMany({
+      return await prisma.user.findUnique({
         where: {
           id: input?.userId,
         },
