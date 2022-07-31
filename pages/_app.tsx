@@ -3,11 +3,15 @@ import { AppType } from "next/dist/shared/lib/utils";
 import { AppRouter } from "./api/trpc/[trpc]";
 import superjson from "superjson";
 import { SessionProvider } from "next-auth/react";
+import Layout from "../components/layouts/main";
+import "../styles/globals.css";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <SessionProvider session={pageProps.session}>
-      <Component {...pageProps} />;
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </SessionProvider>
   );
 };

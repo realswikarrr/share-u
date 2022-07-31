@@ -5,7 +5,6 @@ const Home: NextPage = () => {
   return (
     <>
       <div>Hello stranger</div>
-      <button onClick={() => signIn("google")}>SignIn</button>
     </>
   );
 };

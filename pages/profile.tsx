@@ -35,7 +35,6 @@ const Profile = () => {
           <div>
             <h1>Logged In As {session?.user?.email}</h1>
             <Info />
-            <button onClick={() => signOut()}>Sign Out</button>
           </div>
         ) : (
           <>
