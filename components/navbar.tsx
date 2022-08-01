@@ -5,6 +5,7 @@ import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import { AiFillGithub } from "react-icons/ai";
 import { useSession, signOut, signIn } from "next-auth/react";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 const NavBar = () => {
   const { data: session } = useSession();
@@ -47,6 +48,7 @@ const NavBar = () => {
           </svg>
         </button>
         {/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
+
         <div
           className={`${
             active ? "" : "hidden"
