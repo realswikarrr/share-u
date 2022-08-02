@@ -65,7 +65,7 @@ const NavBar = () => {
                         className="md:mb-0 lg:mb-0"
                         onClick={() => signOut()}
                       >
-                        SignOut
+                        {session?.user?.name}
                       </button>
                     </div>
                   ) : (

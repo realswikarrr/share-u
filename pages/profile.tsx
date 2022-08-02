@@ -33,12 +33,10 @@ const Profile = () => {
           </div>
         ) : data?.email === session?.user?.email ? (
           <div>
-            <h1>Logged In As {session?.user?.email}</h1>
             <Info />
           </div>
         ) : (
           <>
-            <h1>Logged In As {session?.user?.email}</h1>
             <h1>Create Your Data Links</h1>
             <button onClick={handleClick}>Get Started</button>
           </>
