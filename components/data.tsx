@@ -4,7 +4,7 @@ type Props = {
 
 const Data: React.FC<Props> = ({ data }) => {
   return (
-    <div className="border-4 mt-8 p-10 pt-3 h-auto border-secondary ">
+    <div className="border-4 mt-8 mx-10 p-10 pt-3 h-auto border-secondary ">
       {data.data < 0 ? (
         <h1>hello</h1>
       ) : (

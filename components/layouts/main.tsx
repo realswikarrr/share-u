@@ -23,7 +23,7 @@ const Main = ({ children }: Props) => {
       </Head>
 
       <NavBar />
-      <div className="container mx-auto max-w-7xl">{children}</div>
+      <div className="container mx-auto  max-w-7xl">{children}</div>
     </>
   );
 };
