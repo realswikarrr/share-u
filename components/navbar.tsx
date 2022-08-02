@@ -51,7 +51,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="flex items-center flex-wrap bg-primary p-3 w-full lg:mx-auto justify-between ">
+      <nav className="backdrop-blur-sm  flex items-center flex-wrap bg-primary p-3 w-full lg:mx-auto justify-between ">
         <Link href="/">
           <a className="inline-flex items-center p-2 mr-4 pl-0 lg:ml-72">
             <SiFigshare className="text-white lg:mr-2 lg:text-2xl text-xl mr-1" />
