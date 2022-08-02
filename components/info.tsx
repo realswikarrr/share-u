@@ -11,8 +11,6 @@ const Info = () => {
   const [email, setEmail] = useState(session?.user?.email!);
   const [file, setFile] = useState("");
 
-  console.log(file);
-
   const { data, refetch, status } = trpc.useQuery([
     "getLinks",
     { userId: email },
@@ -82,7 +80,9 @@ const Info = () => {
           type="submit"
           className="bg-tertiary p-5 items-center rounded-lg"
         >
-          <h1 className="text-center text-white font-bold">Send File {file}</h1>
+          <h1 className="text-center text-white font-bold">
+            Send File {file.length > 0 ? "✅" : "❌"}
+          </h1>
         </button>
       </div>
     </div>
