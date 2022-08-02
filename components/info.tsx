@@ -77,11 +77,12 @@ const Info = () => {
             Select a file
           </span>
         </label>
+        <h1 className="text-center text-white font-bold">Coming Soon....</h1>
         <button
           type="submit"
           className="bg-tertiary p-5 items-center rounded-lg"
         >
-          <h1 className="text-center text-white font-bold">Send</h1>
+          <h1 className="text-center text-white font-bold">Send File {file}</h1>
         </button>
       </div>
     </div>
