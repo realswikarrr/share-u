@@ -1,6 +1,7 @@
 import { trpc } from "../utils/trpc";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
+import Data from "./data";
 
 const Info = () => {
   const { data: session } = useSession();
@@ -32,15 +33,9 @@ const Info = () => {
       {status === "loading" ? (
         <div>Loading....</div>
       ) : (
-        <div>
-          {data?.map((link: any) => (
-            <div key={link.id}>
-              <h1>{link.text}</h1>
-              <h1>{link.image}</h1>
-              <h1>{link.docs}</h1>
-            </div>
-          ))}
-        </div>
+        <>
+          <Data data={data} />
+        </>
       )}
 
       <form onSubmit={submitHander}>
