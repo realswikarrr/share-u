@@ -52,7 +52,7 @@ const ThemeToggle = () => {
             animate="animate"
             whileTap="whileTap"
             variants={sunVariants}
-            className="hidden lg:block"
+            className="hidden lg:inline-block"
           >
             <BsFillSunFill
               className="text-2xl text-yellow-500 "
@@ -77,7 +77,7 @@ const ThemeToggle = () => {
             animate="animate"
             whileTap="whileTap"
             variants={variants}
-            className="hidden lg:block"
+            className="hidden lg:inline-block"
           >
             <BsFillMoonFill
               className="text-2xl text-black dark:text-white "
@@ -85,7 +85,7 @@ const ThemeToggle = () => {
               onClick={() => setTheme("dark")}
             />
           </motion.div>
-          <motion.div className="block lg:hidden">
+          <motion.div className="inline-block lg:hidden">
             <BsFillMoonFill
               className="text-2xl text-black dark:text-white "
               role="button"

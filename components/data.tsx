@@ -3,18 +3,25 @@ type Props = {
 };
 
 const Data: React.FC<Props> = ({ data }) => {
+  console.log(data.length);
   return (
     <div className="border-4 mt-8 mx-10 p-10 pt-3 h-auto border-secondary ">
-      {data.data < 0 ? (
-        <h1>hello</h1>
+      {data.length === 0 ? (
+        <div className="text-center ">
+          <h1 className="mt-5">
+            Sheesh You Have Nothing Here Start Adding ..... 🚀{" "}
+          </h1>
+        </div>
       ) : (
         <div>
           {data?.map((link: any) => (
             <div key={link.id}>
-              <div className="pl-3 flex justify-between bg-secondary items-center  mt-2 rounded-lg">
-                <h1 className="text-white font-semibold">{link.text}</h1>
+              <div className=" pl-3 flex justify-between bg-secondary items-center  mt-2 rounded-lg">
+                <h1 className="text-white font-semibold max-w-max overflow-hidden">
+                  {link.text}
+                </h1>
                 <button className="bg-tertiary p-5  items-center rounded-lg">
-                  <h1 className="text-center text-white font-bold">
+                  <h1 className="text-center text-white font-bold  ">
                     Copy Text
                   </h1>
                 </button>
@@ -22,7 +29,9 @@ const Data: React.FC<Props> = ({ data }) => {
 
               {link.image.length > 0 ? (
                 <div className="pl-3 flex justify-between bg-secondary items-center  mt-2 rounded-lg">
-                  <h1 className="text-white font-semibold">{link.image}</h1>
+                  <h1 className="text-white font-semibold max-w-max overflow-hidden">
+                    {link.image}
+                  </h1>
                   <button className="bg-tertiary p-5  items-center rounded-lg">
                     <h1 className="text-center text-white font-bold">
                       Open Image
@@ -33,7 +42,9 @@ const Data: React.FC<Props> = ({ data }) => {
 
               {link.docs.length > 0 ? (
                 <div className="pl-3 flex justify-between bg-secondary items-center  mt-2 rounded-lg">
-                  <h1 className="text-white font-semibold">{link.docs}</h1>
+                  <h1 className="text-white font-semibold max-w-max overflow-hidden">
+                    {link.docs}
+                  </h1>
                   <button className="bg-tertiary p-5  items-center rounded-lg">
                     <h1 className="text-center text-white font-bold">
                       Open Docs
