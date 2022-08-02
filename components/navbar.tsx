@@ -1,52 +1,18 @@
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { SiFigshare } from "react-icons/si";
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import { AiFillGithub } from "react-icons/ai";
 import { useSession, signOut, signIn } from "next-auth/react";
-import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
-import { motion } from "framer-motion";
-import { useTheme } from "next-themes";
+import ThemeToggle from "./theme-toggle";
 
 const NavBar = () => {
-  const { systemTheme, theme, setTheme } = useTheme();
-
   const { data: session } = useSession();
 
   const [active, setActive] = useState(false);
 
   const handleClick = () => {
     setActive(!active);
-  };
-
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const renderThemeChanger = () => {
-    if (!mounted) return null;
-
-    const currentTheme = theme === "system" ? systemTheme : theme;
-
-    if (currentTheme === "dark") {
-      return (
-        <BsFillSunFill
-          className="text-2xl text-yellow-500 "
-          role="button"
-          onClick={() => setTheme("light")}
-        />
-      );
-    } else {
-      return (
-        <BsFillMoonFill
-          className="text-2xl text-white "
-          role="button"
-          onClick={() => setTheme("dark")}
-        />
-      );
-    }
   };
 
   return (
@@ -127,7 +93,7 @@ const NavBar = () => {
             </div>
 
             {/* Dark Toggle Button */}
-            {renderThemeChanger()}
+            <ThemeToggle />
             {/* Dark Toggle Ends Here */}
           </div>
         </div>
