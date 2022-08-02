@@ -5,13 +5,16 @@ import superjson from "superjson";
 import { SessionProvider } from "next-auth/react";
 import Layout from "../components/layouts/main";
 import "../styles/globals.css";
+import { ThemeProvider } from "next-themes";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <SessionProvider session={pageProps.session}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ThemeProvider attribute="class">
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
     </SessionProvider>
   );
 };
