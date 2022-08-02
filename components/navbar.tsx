@@ -33,7 +33,7 @@ const NavBar = () => {
     if (currentTheme === "dark") {
       return (
         <BsFillSunFill
-          className="w-10 h-10 text-yellow-500 "
+          className="text-2xl text-yellow-500 "
           role="button"
           onClick={() => setTheme("light")}
         />
@@ -41,7 +41,7 @@ const NavBar = () => {
     } else {
       return (
         <BsFillMoonFill
-          className="w-10 h-10 text-gray-900 "
+          className="text-2xl text-white "
           role="button"
           onClick={() => setTheme("dark")}
         />
@@ -51,18 +51,19 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="flex items-center flex-wrap bg-primary p-3 max-w-7xl container mx-auto ">
+      <nav className="flex items-center flex-wrap bg-primary p-3 w-full lg:mx-auto justify-between ">
         <Link href="/">
-          <a className="inline-flex items-center p-2 mr-4 ">
-            <SiFigshare className="text-white mr-2 text-2xl" />
+          <a className="inline-flex items-center p-2 mr-4 pl-0 lg:ml-72">
+            <SiFigshare className="text-white lg:mr-2 lg:text-2xl text-xl mr-1" />
             <span className="text-xl text-white font-bold uppercase tracking-wide">
               Share U
             </span>
           </a>
         </Link>
+
         {/* Responsive Button */}
         <button
-          className=" inline-flex p-3 hover:bg-secondary rounded lg:hidden text-white ml-auto hover:text-white outline-none"
+          className="inline-flex p-3 hover:bg-secondary rounded lg:hidden text-white  hover:text-white outline-none"
           onClick={handleClick}
         >
           <svg
@@ -80,6 +81,7 @@ const NavBar = () => {
             />
           </svg>
         </button>
+
         {/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
 
         <div
@@ -87,7 +89,7 @@ const NavBar = () => {
             active ? "" : "hidden"
           }   w-full lg:inline-flex lg:flex-grow lg:w-auto`}
         >
-          <div className="flex flex-col lg:flex-row justify-between w-full lg:items-center   ">
+          <div className="flex flex-col lg:flex-row justify-between w-full lg:items-center lg:mr-72  ">
             <div>
               <Link href="/">
                 <a className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center  lg:hover:bg-secondary ">
