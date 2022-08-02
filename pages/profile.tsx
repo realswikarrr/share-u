@@ -1,6 +1,7 @@
 import { trpc } from "../utils/trpc";
 import { useSession, signOut, getSession } from "next-auth/react";
 import Info from "../components/info";
+import Loader from "../components/loader";
 
 const Profile = () => {
   const { data: session, status } = useSession();
@@ -28,9 +29,7 @@ const Profile = () => {
     return (
       <>
         {data === undefined ? (
-          <div>
-            <h1>loading....</h1>
-          </div>
+          <Loader />
         ) : data?.email === session?.user?.email ? (
           <div>
             <Info />

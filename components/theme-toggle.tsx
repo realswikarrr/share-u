@@ -80,14 +80,14 @@ const ThemeToggle = () => {
             className="hidden lg:block"
           >
             <BsFillMoonFill
-              className="text-2xl text-white "
+              className="text-2xl text-black dark:text-white "
               role="button"
               onClick={() => setTheme("dark")}
             />
           </motion.div>
           <motion.div className="block lg:hidden">
             <BsFillMoonFill
-              className="text-2xl text-white "
+              className="text-2xl text-black dark:text-white "
               role="button"
               onClick={() => setTheme("dark")}
             />
