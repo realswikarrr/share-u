@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Share U WebApp With t3 Stack
 
-## Getting Started
+![image](https://user-images.githubusercontent.com/80502023/182637890-362719f6-a9e0-40b9-8d25-3e89d1550c1e.png)
 
-First, run the development server:
+![image](https://user-images.githubusercontent.com/80502023/182637665-550ef879-5889-43d8-8036-6e47bf06c156.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+![image](https://user-images.githubusercontent.com/80502023/182637819-8883e1ca-3436-483a-b368-d9192c525e1d.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+# What is this app all about ?
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+This is a WebApp which gives you the functionality to copy and paste any link or text across different devices using the same id and password. Login with google and you data will remain across all the devices.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Why did i build this ?
 
-## Learn More
+I made this app to make my life easier copying and pasting link from different devices and didn't want to use paid services.
 
-To learn more about Next.js, take a look at the following resources:
+# Tech Stack Used ?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`` Next JS ``
+`` tRPC ``
+`` Planet Scale ``
+`` Prisma ``
+`` TypeScript ``
+`` TailWind ``
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Usage 
 
-## Deploy on Vercel
+`` clone this repo ``
+` npm install `
+` npm run dev `
+` You will need to create database in planetscale to be able to run this app`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Please star this repo if you end up using this project ⭐
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Further Improvement 
+
+I will be adding feature to add images and documents as well.
