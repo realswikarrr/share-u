@@ -35,10 +35,19 @@ const Profile = () => {
             <Info />
           </div>
         ) : (
-          <>
-            <h1>Create Your Data Links</h1>
-            <button onClick={handleClick}>Get Started</button>
-          </>
+          <div className="flex flex-col">
+            <div className="text-center ">
+              <h1 className="mt-5">
+                Whohooo You Made It Start By Creating Your First Link Below 🚀
+              </h1>
+            </div>
+            <button
+              className="bg-tertiary p-4 mt-4 mx-auto rounded-lg "
+              onClick={handleClick}
+            >
+              Get Started
+            </button>
+          </div>
         )}
       </>
     );
