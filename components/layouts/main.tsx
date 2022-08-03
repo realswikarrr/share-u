@@ -24,6 +24,10 @@ const Main = ({ children }: Props) => {
 
       <NavBar />
       <div className="container mx-auto  max-w-7xl">{children}</div>
+
+      <h1 className="text-center mt-10">
+        &copy; {new Date().getFullYear()} Swikar Adhikari. All Rights Reserved.
+      </h1>
     </>
   );
 };

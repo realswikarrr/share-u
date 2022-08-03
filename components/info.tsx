@@ -31,7 +31,7 @@ const Info = () => {
   };
 
   return (
-    <div className="info h-screen">
+    <div className="info ">
       {status === "loading" ? (
         <Loader />
       ) : (
