@@ -34,6 +34,7 @@ const Info = () => {
 
   const fileSubmitHandler = async (e: any) => {
     e.preventDefault();
+
     const form = e.currentTarget;
     const fileInput: any = Array.from(form.elements).find(
       ({ name }: any) => name === "file"
@@ -44,7 +45,7 @@ const Info = () => {
       formData.append("file", file);
     }
 
-    formData.append("upload_preset", "shareu-uploads");
+    formData.append("upload_preset", process.env.NEXT_PUBLIC_CLOURDINARY_NAME);
 
     const data = await fetch(process.env.NEXT_PUBLIC_CLOURDINARY_URL, {
       method: "POST",
