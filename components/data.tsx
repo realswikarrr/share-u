@@ -1,5 +1,4 @@
 import DocsContent from "./docsContent";
-import ImageContent from "./imageContent";
 import Text from "./textContent";
 
 type Props = {
@@ -20,10 +19,6 @@ const Data: React.FC<Props> = ({ data }) => {
           {data?.map((link: any) => (
             <div key={link.id}>
               {link.text.length > 0 ? <Text text={link.text} /> : null}
-
-              {link.image.length > 0 ? (
-                <ImageContent image={link.image} />
-              ) : null}
 
               {link.docs.length > 0 ? <DocsContent docs={link.docs} /> : null}
             </div>

@@ -25,7 +25,6 @@ const Info = () => {
     createLink.mutate({
       userId: email,
       text,
-      image: "",
       docs: "",
     });
     setText("");
@@ -58,14 +57,11 @@ const Info = () => {
       createLink.mutate({
         userId: email,
         text: "",
-        image: "",
         docs: data.secure_url,
       });
       setText("");
       toast("🔮 Sent Sucessfully", { theme: "dark" });
     }
-
-    console.log(data.secure_url);
   };
 
   return (

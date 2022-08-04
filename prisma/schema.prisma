@@ -38,8 +38,6 @@ model Links {
 
   text String
 
-  image String
-
   docs String
 
   user User @relation(fields: [userId], references: [id])

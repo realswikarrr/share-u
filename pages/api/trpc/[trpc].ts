@@ -57,7 +57,6 @@ export const appRouter = trpc
     input: z.object({
       userId: z.string(),
       text: z.string(),
-      image: z.string(),
       docs: z.string(),
     }),
     async resolve({ input }) {
@@ -65,7 +64,6 @@ export const appRouter = trpc
         data: {
           userId: input?.userId!,
           text: input?.text!,
-          image: input?.image!,
           docs: input?.docs!,
         },
       });
