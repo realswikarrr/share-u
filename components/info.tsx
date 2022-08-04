@@ -46,13 +46,10 @@ const Info = () => {
 
     formData.append("upload_preset", "shareu-uploads");
 
-    const data = await fetch(
-      "https://api.cloudinary.com/v1_1/shareu/image/upload",
-      {
-        method: "POST",
-        body: formData,
-      }
-    ).then((r) => r.json());
+    const data = await fetch(process.env.NEXT_PUBLIC_CLOURDINARY_URL, {
+      method: "POST",
+      body: formData,
+    }).then((r) => r.json());
 
     if (!data.secure_url) {
       toast("Loading...", { theme: "dark" });
