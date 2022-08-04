@@ -6,12 +6,25 @@ import { SessionProvider } from "next-auth/react";
 import Layout from "../components/layouts/main";
 import "../styles/globals.css";
 import { ThemeProvider } from "next-themes";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <SessionProvider session={pageProps.session}>
       <ThemeProvider attribute="class">
         <Layout>
+          <ToastContainer
+            position="top-center"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            draggable
+            pauseOnHover
+            limit={3}
+          />
           <Component {...pageProps} />
         </Layout>
       </ThemeProvider>

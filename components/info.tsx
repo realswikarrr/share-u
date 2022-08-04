@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 import Data from "./data";
 import Loader from "./loader";
+import { toast } from "react-toastify";
 
 const Info = () => {
   const { data: session } = useSession();
@@ -28,6 +29,12 @@ const Info = () => {
       docs: "",
     });
     setText("");
+    toast("🔮 Sending Please Wait", { theme: "dark" });
+  };
+
+  const fileSubmitHandler = (e: any) => {
+    e.preventDefault();
+    toast("🔮 Feature Coming Soon", { theme: "dark" });
   };
 
   return (
@@ -78,6 +85,7 @@ const Info = () => {
         <h1 className="text-center text-white font-bold">Coming Soon....</h1>
         <button
           type="submit"
+          onClick={fileSubmitHandler}
           className="bg-tertiary p-5 items-center rounded-lg"
         >
           <h1 className="text-center text-white font-bold">

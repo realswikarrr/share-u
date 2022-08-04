@@ -1,10 +1,12 @@
 import useClipboard from "react-use-clipboard";
+import { toast } from "react-toastify";
 
 const Text = ({ text }: any) => {
   const [isCopied, setCopied] = useClipboard(text);
 
   const handleClick = () => {
     setCopied();
+    toast("📑 Copied To Your Clipboard", { theme: "dark" });
   };
 
   return (

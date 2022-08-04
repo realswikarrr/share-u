@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { signIn, getSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
 
 const Home: NextPage = () => {
   return (
