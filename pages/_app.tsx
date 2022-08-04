@@ -16,8 +16,8 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         <Layout>
           <ToastContainer
             position="top-center"
-            autoClose={2000}
-            hideProgressBar={false}
+            autoClose={1000}
+            hideProgressBar={true}
             newestOnTop={false}
             closeOnClick
             rtl={false}

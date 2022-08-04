@@ -21,14 +21,28 @@ const Info = () => {
   });
 
   const submitHander = (e: any) => {
+    toast.loading("Sending...", {
+      position: toast.POSITION.TOP_CENTER,
+      progressClassName: "success-progress-bar",
+      toastId: 3,
+      theme: "dark",
+    });
+
     e.preventDefault();
     createLink.mutate({
       userId: email,
       text,
       docs: "",
     });
+    toast.update(3, {
+      render: "Sent Successfully",
+      type: "success",
+      hideProgressBar: true,
+      autoClose: 1000,
+      isLoading: false,
+      theme: "dark",
+    });
     setText("");
-    toast("🔮 Sending Please Wait", { theme: "dark" });
   };
 
   const fileSubmitHandler = async (e: any) => {
@@ -74,7 +88,6 @@ const Info = () => {
         isLoading: false,
         theme: "dark",
       });
-      setText("");
     }
   };
 
