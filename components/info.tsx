@@ -34,6 +34,13 @@ const Info = () => {
   const fileSubmitHandler = async (e: any) => {
     e.preventDefault();
 
+    toast.loading("Uploading...", {
+      position: toast.POSITION.TOP_CENTER,
+      progressClassName: "success-progress-bar",
+      toastId: 2,
+      theme: "dark",
+    });
+
     const form = e.currentTarget;
     const fileInput: any = Array.from(form.elements).find(
       ({ name }: any) => name === "file"
@@ -59,8 +66,15 @@ const Info = () => {
         text: "",
         docs: data.secure_url,
       });
+      toast.update(2, {
+        render: "Upload Complete",
+        type: "success",
+        hideProgressBar: true,
+        autoClose: 1000,
+        isLoading: false,
+        theme: "dark",
+      });
       setText("");
-      toast("🔮 Sent Sucessfully", { theme: "dark" });
     }
   };
 
