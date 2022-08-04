@@ -9,7 +9,7 @@
 
 # What is this app all about ?
 
-This is a WebApp which gives you the functionality to copy and paste any link or text across different devices using the same id and password. Login with google and you data will remain across all the devices.
+This is a WebApp which gives you the functionality to copy and paste any link / documents such as images across different devices using the same id and password. Login with google and you data will remain across all the devices.
 
 # Why did i build this ?
 
@@ -35,4 +35,4 @@ Please star this repo if you end up using this project ⭐
 
 # Further Improvement 
 
-I will be adding feature to add images and documents as well.
+I will be making performance improvements in upcoming days
