@@ -32,9 +32,42 @@ const Info = () => {
     toast("🔮 Sending Please Wait", { theme: "dark" });
   };
 
-  const fileSubmitHandler = (e: any) => {
+  const fileSubmitHandler = async (e: any) => {
     e.preventDefault();
-    toast("🔮 Feature Coming Soon", { theme: "dark" });
+    const form = e.currentTarget;
+    const fileInput: any = Array.from(form.elements).find(
+      ({ name }: any) => name === "file"
+    );
+
+    const formData = new FormData();
+    for (const file of fileInput.files) {
+      formData.append("file", file);
+    }
+
+    formData.append("upload_preset", "shareu-uploads");
+
+    const data = await fetch(
+      "https://api.cloudinary.com/v1_1/shareu/image/upload",
+      {
+        method: "POST",
+        body: formData,
+      }
+    ).then((r) => r.json());
+
+    if (!data.secure_url) {
+      toast("Loading...", { theme: "dark" });
+    } else {
+      createLink.mutate({
+        userId: email,
+        text: "",
+        image: "",
+        docs: data.secure_url,
+      });
+      setText("");
+      toast("🔮 Sent Sucessfully", { theme: "dark" });
+    }
+
+    console.log(data.secure_url);
   };
 
   return (
@@ -70,29 +103,32 @@ const Info = () => {
 
       {/* File Input */}
 
-      <div className="mt-5 mx-10 flex justify-between rounded-lg bg-secondary items-center text-center">
+      <form
+        onSubmit={fileSubmitHandler}
+        className="mt-5 mx-10 flex justify-between rounded-lg bg-secondary items-center text-center"
+      >
         <label className="bg-tertiary p-5 items-center rounded-lg">
           <input
             type="file"
             className="hidden"
             value={file}
+            name="file"
             onChange={(e) => setFile(e.target.value)}
           />
           <span className="text-center text-white font-bold">
             Select a file
           </span>
         </label>
-        <h1 className="text-center text-white font-bold">Coming Soon....</h1>
+        <h1 className="text-center text-white font-bold">Start Uploading</h1>
         <button
           type="submit"
-          onClick={fileSubmitHandler}
           className="bg-tertiary p-5 items-center rounded-lg"
         >
           <h1 className="text-center text-white font-bold">
             Send File {file.length > 0 ? "✅" : "❌"}
           </h1>
         </button>
-      </div>
+      </form>
     </div>
   );
 };

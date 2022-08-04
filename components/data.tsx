@@ -19,7 +19,7 @@ const Data: React.FC<Props> = ({ data }) => {
         <div>
           {data?.map((link: any) => (
             <div key={link.id}>
-              <Text text={link.text} />
+              {link.text.length > 0 ? <Text text={link.text} /> : null}
 
               {link.image.length > 0 ? (
                 <ImageContent image={link.image} />
