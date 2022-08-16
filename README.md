@@ -32,7 +32,3 @@ I made this app to make my life easier copying and pasting link from different d
 ` You will need to create database in planetscale to be able to run this app`
 
 Please star this repo if you end up using this project ⭐
-
-# Further Improvement 
-
-I will be making performance improvements in upcoming days
